@@ -1,0 +1,64 @@
+* {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: hsla(0, 0%, 80%, 0.25);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform 0.1s ease, width 0.1s ease, height 0.1s ease;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.custom-cursor.expanded {
+  width: 30px;
+  height: 30px;
+}
+
+.custom-cursor.contracted {
+  width: 20px;
+  height: 20px;
+}
+
+.custom-cursor.clicked {
+  width: 15px;
+  height: 15px;
+}
+
+.custom-cursor.text-pointer {
+  width: 3px;
+  height: 30px;
+  background-color: hsla(0, 0%, 80%, 0.75);
+  animation: flash 0.5s infinite;
+  border-radius: 2px;
+}
+
+@keyframes flash {
+  0%,
+  to {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+input,
+textarea {
+  cursor: none;
+}
+
+button:hover {
+  cursor: none;
+}
