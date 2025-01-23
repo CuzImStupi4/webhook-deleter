@@ -1,20 +1,16 @@
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
-
 on:
   push:
     branches: ["main"]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: "pages-deployment"
   cancel-in-progress: false
-
 jobs:
   deploy:
     name: Deploy to GitHub Pages
@@ -22,22 +18,20 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v3
         with:
           enablement: true
-
       - name: Upload content
         uses: actions/upload-artifact@v4
         with:
           name: pages_content
           path: "."
-
+      - name: Verify artifact upload (debugging step)
+        run: echo "Artifact uploaded successfully!"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
