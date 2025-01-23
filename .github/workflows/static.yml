@@ -35,11 +35,11 @@ jobs:
       - name: Upload content
         uses: actions/upload-artifact@v4
         with:
-          name: pages-content
+          name: pages_content
           path: "."
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
         with:
-          artifact-name: pages-content
+          artifact_name: pages_content
